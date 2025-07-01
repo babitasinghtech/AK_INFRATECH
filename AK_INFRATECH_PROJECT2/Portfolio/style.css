@@ -232,18 +232,11 @@ p {
   padding: 0%;
 }
 
-.numpy {
-  max-width: 100%;
-  width: 30%;
-  height: 30%;
-  padding-bottom: 7%;
-}
-
-.pandas {
+.flutter {
   max-width: 100%;
   max-height: 100%;
   width: 23%;
-  height: 15%;
+  height: 25%;
   padding-bottom: 7%;
   padding-left: 0;
 }

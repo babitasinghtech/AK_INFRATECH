@@ -174,18 +174,18 @@ a {
     width: 70%;
   }
 }
-#Skill-Python {
+#Skill-flutter {
   border-radius: 20px;
-  animation: Animate-Python 5s;
-  -webkit-animation: Animate-Python 5s;
-  -moz-animation: Animate-Python 5s;
-  -o-animation: Animate-Python 5s;
+  animation: Animate-flutter 5s;
+  -webkit-animation: Animate-flutter 5s;
+  -moz-animation: Animate-flutter 5s;
+  -o-animation: Animate-flutter 5s;
   width: 80%;
   height: 50px;
   position: absolute;
   background-color: #6c63ff;
 }
-@keyframes Animate-Python {
+@keyframes Animate-flutter {
   from {
     width: 10px;
   }
@@ -193,7 +193,7 @@ a {
     width: 80%;
   }
 }
-@-webkit-keyframes Animate-Python {
+@-webkit-keyframes Animate-flutter {
   from {
     width: 10px;
   }
@@ -201,7 +201,7 @@ a {
     width: 80%;
   }
 }
-@-moz-keyframes Animate-Python {
+@-moz-keyframes Animate-flutter {
   from {
     width: 10px;
   }
@@ -209,7 +209,7 @@ a {
     width: 80%;
   }
 }
-@-o-keyframes Animate-Python {
+@-o-keyframes Animate-flutter {
   from {
     width: 10px;
   }
@@ -253,6 +253,50 @@ a {
   }
 }
 @-o-keyframes Animate-JS {
+  from {
+    width: 10px;
+  }
+  to {
+    width: 65%;
+  }
+}
+
+#Skill-Python {
+  animation: Animate-Python 4s;
+  -webkit-animation: Animate-Python 4s;
+  -moz-animation: Animate-Python 4s;
+  -o-animation: Animate-Python 4s;
+  border-radius: 20px;
+  width: 65%;
+  height: 50px;
+  position: absolute;
+  background-color: #6c63ff;
+}
+@keyframes Animate-Python {
+  from {
+    width: 10px;
+  }
+  to {
+    width: 65%;
+  }
+}
+@-webkit-keyframes Animate-Python {
+  from {
+    width: 10px;
+  }
+  to {
+    width: 65%;
+  }
+}
+@-moz-keyframes Animate-Python {
+  from {
+    width: 10px;
+  }
+  to {
+    width: 65%;
+  }
+}
+@-o-keyframes Animate-Python {
   from {
     width: 10px;
   }
