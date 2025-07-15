@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/api_services/api_service.dart';
+import 'package:todo_app/models/get_all_todo.dart';
 import 'package:todo_app/screen/add_update_todo.dart';
 import 'package:todo_app/screen/todo_screen.dart';
 
@@ -10,6 +12,40 @@ class TodoListScreen extends StatefulWidget {
 }
 
 class _TodoListScreenState extends State<TodoListScreen> {
+  GetAllTodosModel getAllTodosModel = GetAllTodosModel();
+
+  List<Items> inCompleteTodo = [];
+  List<Items> completeTodo = [];
+  bool isLoading = false;
+  getAllTodos() async {
+    setState(() {
+      isLoading = true;
+    });
+    await ApiServices()
+        .GetAllTodos()
+        .then((value) {
+          getAllTodosModel = value;
+          for (var todo in value.items!) {
+            if (todo.isComplete == true) {
+              completeTodo.add(todo);
+            } else {
+              inCompleteTodo.add(todo);
+            }
+            isLoading = false;
+            setState(() {});
+          }
+          setState(() {});
+        })
+        .onError((error, stackTrace) {
+          debugPrint(error.toString());
+        });
+  }
+
+  void initState() {
+    getAllTodos();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -39,14 +75,26 @@ class _TodoListScreenState extends State<TodoListScreen> {
           ),
         ),
 
-        body: TabBarView(children: [TodoScreen(), TodoScreen(), TodoScreen()]),
+        body:
+            isLoading
+                ? const Center(child: CircularProgressIndicator())
+                : TabBarView(
+                  children: [
+                    TodosScreen(todoList: getAllTodosModel.items ?? []),
+                    TodosScreen(todoList: inCompleteTodo),
+                    TodosScreen(todoList: completeTodo),
+                  ],
+                ),
 
         floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.push(
+          onPressed: () async {
+            bool loading = await Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => Add_and_Update_todo()),
+              MaterialPageRoute(builder: (context) => AddAndUpdateTodo()),
             );
+            if (loading == true) {
+              getAllTodos();
+            }
           },
           child: Icon(Icons.add),
         ),
