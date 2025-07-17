@@ -4,10 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:todo_app/models/get_all_todo.dart';
 import 'package:todo_app/models/todo_model.dart';
-import '../models/get_all_todo.dart';
 
 class ApiServices {
-  String baseUrl = 'http://192.168.1.4:3000';
+  String baseUrl = 'http://10.0.2.2:3000';
 
   //get all todos
   Future<GetAllTodosModel> GetAllTodos() async {
